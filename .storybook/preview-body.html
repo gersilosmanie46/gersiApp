@@ -1,0 +1,15 @@
+class CustomRoot extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+  }
+}
+customElements.define('custom-root', CustomRoot);
+
+class PopoverContent extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+  }
+}
+customElements.define('popover-content', PopoverContent);
