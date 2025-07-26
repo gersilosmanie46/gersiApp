@@ -1,0 +1,14 @@
+<div>
+  <div class="mm-box mm-box--padding-4" data-testid="network-selector-button">
+    <div class="mm-box dropdown-editor__item-dropdown mm-box--padding-right-2 mm-box--padding-left-4 mm-box--display-flex mm-box--justify-content-space-between mm-box--align-items-center mm-box--rounded-lg mm-box--border-color-border-default mm-box--border-width-1 box--border-style-solid">
+      <p class="mm-box mm-text mm-text--body-md-medium mm-box--padding-top-3 mm-box--padding-bottom-3 mm-box--color-text-default">
+        Test Title
+      </p>
+      <div class="mm-box mm-box--margin-left-auto mm-box--display-flex mm-box–align-items-center">
+        <button aria-label="Test Title" class="mm-button-icon sm-size-icon inline-flex justify-center align-items-center transparent-background rounded-lg icon-color-default">
+          <span class="mm-icon sm-size-icon inline-block inherit-color" style="mask-image: url('./images/icons/arrow-right.svg');"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
