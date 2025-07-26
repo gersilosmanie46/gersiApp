@@ -1,0 +1,96 @@
+
+// User stories
+As a web developer, I want to create a responsive and accessible web application that displays user information and allows them to update their details. The application should be optimized for performance, ensuring fast load times and minimal resource usage. It should also include error handling and validation to ensure data integrity. Additionally, the application should support internationalization (i18n) to cater to users from different regions.
+
+// Constraints:
+- The application must be written in TypeScript with React as the front-end framework.
+- Use functional components and hooks wherever possible.
+- Adhere to accessibility guidelines such as WCAG 2.1 AA compliance or higher.
+- Ensure that all external libraries used are open source with permissive licenses (e.g., MIT).
+
+ // Tasks:
+
+ 1) Create a component for displaying user information
+   - Input: user data (name, email, phone number, etc.)
+   - Output: HTML/React elements representing the user's information
+   - Constraints:
+     - Use functional components
+     - Apply proper accessibility attributes
+     - Style using CSS Modules or Styled Components
+     - Ensure responsiveness using media queries or CSS Grid/Flexbox
+
+ 2) Implement form input fields for updating user details
+   - Input: current state of the form data
+   - Output: HTML/React elements representing input fields with proper labels, placeholders, etc., bound by state management libraries like Redux or MobX
+   - Constraints:
+     - Apply appropriate accessibility attributes (e.g., aria-label)
+     - Validate inputs on client side using libraries like Yup or Zod before submitting changes
+     - Provide feedback on input validation errors via visual cues (e.g., red border around invalid fields)
+
+ 3) Design an API wrapper for fetching & updating user info asynchronously
+   Using Axios or Fetch API alongside type definitions from ts-axios library make HTTP requests securely within TypeScript environment while handling errors gracefully through custom error classes derived from built-in Error class extending relevant status codes
+
+     Fetching User Info
+       ```typescript
+       interface IUser {
+         id?: number;
+         name?: string;
+         email?: string;
+         phoneNumber?: string;
+       }
+
+       const fetchUserInfo = async (): Promise<IUser> => {
+         try {
+           const response = await axiosInstance.<get>("users/me");
+           return response?.data || {}; // Handle empty response
+
+         } catch(error){
+           throw new ApiError(error); // Custom error class extending ApiErrorBase
+       };
+
+       ```
+
+     Updating User Info
+       ```typescript
+       interface IUserUpdateRequest {
+        id?: number;
+        name?: string | null | undefined;
+        email?: string | null | undefined;
+        phoneNumber?: string | null | undefined;
+      }
+
+      const updateUserInfo = async ({ userId }: Partial<IUserUpdateRequest>): Promise<void> => {
+          try{
+            await axiosInstance.<patch>(`users/${userId}`);
+          }catch(error){
+            throw new ApiError(error);
+          };
+      };
+
+      ```
+
+     i18n Support for Internationalization
+      Include 'react-i18next' package along with its typings enabling language switching at runtime supported by json files containing translations per locale defined under 'public' directory
+
+       Configure i18n provider in main App component & manage translation keys throughout app accordingly
+
+        Usage Example
+
+        <Trans id="welcomeMessage">Welcome!</Trans> / <t t="welcomeMessage">Welcome!</t>
+
+        Translating key "welcomeMessage" based upon selected language
+
+      For more detailed documentation refer official react i18next guide here https://www NULL .react NULL .i18next NULL .com NULL /docs/gettingstarted
+
+  /* Jest Snapshot Testing */
+  import React from "react";
+  import renderer from "jest-dom/renderer";
+
+  describe("Component Rendering", () => {
+    it("should render correctly", () => {
+      const element = renderer
+        .create(<Component prop={value} />).toJSON();
+
+      expect(element).toMatchSnapshot();
+    });
+  });
